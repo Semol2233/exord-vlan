@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="container mt-5 shadow p-4">
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object.VLAN }}" VLAN</p>
+        <input class="btn btn-danger" type="submit" value="Confirm" />
+    </form>
+    <br>
+
+    <br>    
+</div>
+<br>
+{% endblock content %}
+    

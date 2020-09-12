@@ -1,0 +1,117 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Advace Python</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css_file/style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+   
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+   
+  </head>
+
+  <body>
+    {% if user.is_authenticated %}
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark  navbar-default ">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'homes' %}">G O B I N D A </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+         
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-success"><i class="fa fa-plus"></i></span> Add
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'homssses' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Video</a>
+                        <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
+                    </div>
+                  </li>
+                  <!-- {% if user.is_superuser %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="#"> Admin</a>
+                  </li>
+                  {% endif %} -->
+
+
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+                </li>
+
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+                <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search"/></input>
+            </form>
+
+
+
+
+        </div>
+      </div>
+    </nav>
+    {% else %}
+
+<!--      
+<div class="container mt-3 card col-sm-5 shadow-lg p-3 mb-5 bg-white rounded">
+    <form method="POST">
+        {% csrf_token %}
+        
+        {% if fail %}
+           <p class="text-danger"><strong>User name or password wrong</strong></p>
+        {% endif %}
+        <div class="form-group">
+            <label for="user">UserName</label>
+            <input type="text" name="username" id="user" class="form-control" placeholder="Enter Name...">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="******">
+        </div>
+        <input type="submit" class="btn btn-success" value="Login">
+    </form>
+</div> -->
+                {% endif %}
+
+                
+<div class="container mt-2">
+    
+    {% block content %}
+    
+    {% endblock  %}
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

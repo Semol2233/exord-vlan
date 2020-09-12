@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 card col-sm-5 shadow-lg p-3 mb-5 bg-white rounded">
+        
+        {% if reg %}
+            <h1>Success Reg foem!</h1>
+        {% endif %}
+            
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+
+                <input class="btn btn-success" type="submit" value="Register">
+               <br>
+               <br>
+            </form>
+
+            <div class="container ml-5">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input class="btn btn-info" type="submit" value="Facebook">
+                    </div>
+    
+                    <div class="col-sm-3">
+                        <input class="btn btn-danger" type="submit" value="Google">
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
+    

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        
+        {% for demo in semol %}
+            <h1>{{demo.title}}</h1>
+        {% endfor %}
+            
+    </div>
+{% endblock  %}
+    

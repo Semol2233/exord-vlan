@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+    {% block content %}
+    
+            <div class="alert alert-primary" role="alert">
+               <div class="row">
+                   <div class="col-sm-3">
+                    <h6>Top News</h6>
+                   </div>
+               </div>
+              </div>
+              
+            <div class="row">
+                {% for post in mylist %}
+                <div class="col-sm-3 mt-3">
+                    <div class="card shadow"  style="height:250px;">
+                        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                            {% if post.photo %}
+                            <a href="{% url 'details-page' post.id %}"> <img class="card-img-top" src="{{ post.photo.url }}" alt="Card image cap"></a>
+                            {% endif %}
+                            
+                        <div class="card-body">
+                          <a class="text-decoration-none" href="{% url 'details-page' post.id %}"><p style="
+                            white-space: nowrap;
+                            width: 200px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;"
+                             class="card-title  text-dark">{{post.title}}</p></a>
+                             
+                             <span>
+                                {% if user.is_superuser %}
+                                <a class="btn btn-primary " href="{% url 'news' post.pk %}" > <span><i class="fa fa-edit    "></i></span> </a>
+                                <a class="btn btn-danger " href="{% url 'delete' post.pk %}"> <span><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                                <a class="btn btn-success " href="{% url 'news-uplode' %}"><span><i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                                {% endif %}
+                              </span>   
+                        </div>
+                      
+                        </div>
+                </div>
+                
+
+                {% endfor %}
+ 
+            </div>
+            <br>
+            <div class="alert alert-primary" role="alert">
+                <div class="row">
+                    <div class="col-sm-3">
+                     <h6>Trending Video</h6>
+                    </div>
+                </div>
+               </div>
+
+               <div class="row">
+                {% for post in video_list %}
+                <div class="col-sm-3 mt-3">
+                    <div class="card shadow rounded"  style="height:250px;">
+                        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                        
+                        {% if post.photo %}
+                           <a href="{% url 'video-details' post.id %}"> <img class="card-img-top " src="{{ post.photo.url }}" alt="Card image cap"></a>
+                        {% endif %}
+                            
+                        <div class="card-body">
+                          <a class="text-decoration-none" href="#"><p style="
+                            white-space: nowrap;
+                            width: 200px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;"
+                             class="card-title ">{{post.title}}</p></a>
+                          <p class="card-text"><small class="text-muted"></small></p>
+                        </div>
+                        </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+            <br>
+           
+
+        </div>
+        
+        
+        <br>
+        <br>
+
+       
+
+    {% endblock  %}
+
+
+    
+
+

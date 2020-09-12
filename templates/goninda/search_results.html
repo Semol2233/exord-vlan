@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+
+<h5 style="margin-top: 30px;">Results for <b>{{ request.GET.q }}</b></h5>
+<br/><br/>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">VLAN</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">ACTION</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for q in results %}
+        <tr>
+            <th scope="row">{{q.id}}</th>
+            <td>{{q.VLAN}}</td>
+            <td>{{q.DESCRIPTION}}</td>
+            <td>{{q.LOCATION}}</td>
+            <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+          </tr>
+      {% endfor %} 
+
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+{% else %}
+No search results for this query
+{% endif %}
+{% endif %}
+
+{% endblock content %}
+    

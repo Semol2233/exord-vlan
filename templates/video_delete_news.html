@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5 shadow p-4">
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object.title }}"?</p>
+        <input class="btn btn-danger" type="submit" value="Confirm" />
+    </form>
+    <br>
+      <a class="btn btn-success" href="{% url 'updatevideo' object.id %}">Back</a>
+    <br>    
+</div>
+<br>
+{% endblock content %}
+    

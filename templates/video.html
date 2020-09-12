@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div class="container">
+    <div class="alert alert-primary" role="alert">
+        <div class="row">
+            <div class="col-sm-3">
+             <h6>Hot Videos 2019</h6>
+            </div>
+        </div>
+       </div>
+     <div class="row">
+        {% for videos in video %}
+               <div class="col-sm-4">
+                <a href="{% url 'video-details' videos.id %}">
+                    <video
+                    id="my-video"
+                    class="video-js embed-responsive embed-responsive-16by9"
+                    preload="auto"
+                    width="420"
+                    height="180"
+                   {% if videos  %}
+                        poster="{{ videos.photo.url }}"
+                   {% endif %}
+                    data-setup="{}"
+                    >
+                    <source src="{{videos.clip.url}}" type="video/mp4" />
+                    <p class="vjs-no-js">
+                    >
+                    </p>
+                    </video>
+                   </a>
+                   <hr>
+                    <h6 >{{videos.title}}</h6>
+
+                    <span>
+                        {% if user.is_superuser %}
+                        <a class="btn btn-primary " href="{% url 'updatevideo' videos.id %}" > <span><i class="fa fa-edit    "></i></span> </a>
+                        <a class="btn btn-danger " href="{% url 'deletevideos' videos.id %}"> <span><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                        <a class="btn btn-success " href="{% url 'uplode' %}"><span><i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                        {% endif %}
+                      </span> 
+                
+                   <br>
+
+               </div>
+               
+          {% endfor %}
+          <br>
+     </div>
+
+
+     <div class="alert alert-primary" role="alert">
+        <div class="row">
+            <div class="col-sm-3">
+             <h6>Bangla Trending Videos</h6>
+            </div>
+        </div>
+       </div>
+     <div class="row">
+        {% for videos in video %}
+               <div class="col-sm-4">
+                <a href="{% url 'video-details' videos.id %}">
+                    <video
+                    id="my-video"
+                    class="video-js embed-responsive embed-responsive-16by9"
+                    preload="auto"
+                    width="420"
+                    height="180"
+                   {% if videos  %}
+                        poster="{{ videos.photo.url }}"
+                   {% endif %}
+                       
+                    data-setup="{}"
+                    >
+                    <source src="{{videos.clip.url}}" type="video/mp4" />
+                    <p class="vjs-no-js">
+                    >
+                    </p>
+                    </video>
+                   </a>
+                <hr>
+                    <h6 >{{videos.title}}</h6>
+
+                    <span>
+                        {% if user.is_superuser %}
+                        <a class="btn btn-primary " href="" > <span><i class="fa fa-edit    "></i></span> </a>
+                        <a class="btn btn-danger " href=""> <span><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                        <a class="btn btn-success " href=""><span><i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                        {% endif %}
+                      </span> 
+                   <br>
+               </div>
+          {% endfor %}
+          <br>
+     </div>
+     <br>
+     <div class="alert alert-primary" role="alert">
+        <div class="row">
+            <div class="col-sm-3">
+             <h6>Bangla Trending Videos</h6>
+            </div>
+        </div>
+       </div>
+     <div class="row">
+        {% for videos in video %}
+               <div class="col-sm-4">
+                <a href="{% url 'video-details' videos.id %}">
+                    <video
+                    id="my-video"
+                    class="video-js embed-responsive embed-responsive-16by9"
+                    preload="auto"
+                    width="420"
+                    height="180"
+                   {% if videos  %}
+                        poster="{{ videos.photo.url }}"
+                   {% endif %}
+                       
+                    data-setup="{}"
+                    >
+                    <source src="{{videos.clip.url}}" type="video/mp4" />
+                    <p class="vjs-no-js">
+                    >
+                    </p>
+                    </video>
+                   </a>
+                <hr>
+                    <h6 >{{videos.title}}</h6>
+
+                    <span>
+                        {% if user.is_superuser %}
+                        <a class="btn btn-primary " href="" > <span><i class="fa fa-edit    "></i></span> </a>
+                        <a class="btn btn-danger " href=""> <span><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                        <a class="btn btn-success " href=""><span><i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                        {% endif %}
+                      </span> 
+                   <br>
+               </div>
+          {% endfor %}
+          <br>
+     </div>
+        <br>
+    </div>
+    <br>
+
+     </div>
+ </div>
+  
+<br>
+<br><br><br>
+      
+{% endblock  %}
+    

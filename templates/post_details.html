@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block content  %}
+
+    
+    
+
+
+
+
+  <div class="container">
+
+  
+    <div class="row">
+      <div class="col-md-12 ">
+        <img class="col-sm-12 " src="{{ post.photo.url }}" alt="" style="height: 393px;">
+        <hr>
+        <h3 class="my-3 font-weight-bold">{{post.title}}</h3>
+        <div class="card">
+          <p class="p-3 text-justify font-weight-normal">{{post.body}}</p>
+        </div>
+      </div>
+  
+    </div>
+    
+  <br>
+    <div class="alert alert-dark" role="alert">
+      <div class="row">
+          <div class="col-sm-3">
+           <h6>Trending Music</h6>
+          </div>
+      </div>
+     </div>
+    <h3 class="my-4"></h3>
+  
+    <div class="row">
+  
+  {% for post in post_list %}
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="{% url 'details-page' post.id %}">
+          <img class="img-fluid rounded" src="{{ post.photo.url }}" alt="">
+        </a>
+        <div class="card-body">
+          <a class="text-decoration-none" href="#"><h5 style="
+            white-space: nowrap;
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;"
+             class="card-title ">{{post.title}}</h5></a>
+          <p class="card-text"><small class="text-muted"></small></p>
+        </div>
+  </div>
+  {% endfor %}
+    
+    </div>
+
+
+    <div class="alert alert-primary" role="alert">
+      <div class="row">
+          <div class="col-sm-3">
+           <h6>Trending News Video</h6>
+          </div>
+      </div>
+     </div>
+
+  <div class="row">
+      {% for post in video_list %}
+      <div class="col-sm-3 mt-3">
+          <div class="card shadow rounded"  style="height:250px;">
+              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+              
+              {% if post.photo %}
+                 <a href="{% url 'video-details' post.id %}"> <img class="card-img-top " src="{{ post.photo.url }}" alt="Card image cap"></a>
+              {% endif %}
+                  
+              <div class="card-body">
+                <a class="text-decoration-none" href="#"><h5 style="
+                  white-space: nowrap;
+                  width: 200px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;"
+                   class="card-title ">{{post.title}}</h5></a>
+                <p class="card-text"><small class="text-muted"></small></p>
+              </div>
+              </div>
+      </div>
+      {% endfor %}
+      </div>
+
+
+
+      <br>
+    <div class="alert alert-dark" role="alert">
+      <div class="row">
+          <div class="col-sm-3">
+           <h6>Trending Drama</h6>
+          </div>
+      </div>
+     </div>
+    <h3 class="my-4"></h3>
+  
+    <div class="row">
+  
+  {% for post in post_list %}
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="{% url 'details-page' post.id %}">
+          <img class="img-fluid rounded" src="{{ post.photo.url }}" alt="">
+        </a>
+        <div class="card-body">
+          <a class="text-decoration-none" href="#"><h5 style="
+            white-space: nowrap;
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;"
+             class="card-title ">{{post.title}}</h5></a>
+          <p class="card-text"><small class="text-muted"></small></p>
+        </div>
+  </div>
+  {% endfor %}
+    
+    </div>
+
+      <!-- ------------------? -->
+  
+  </div>
+  <br>
+  <br>
+  <br>
+  <!-- /.container -->
+{% endblock  %}
+    

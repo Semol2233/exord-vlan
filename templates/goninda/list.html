@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">VLAN ID</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">ACTION</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for q in listdata %}
+        <tr>
+            <th scope="row">{{q.id}}</th>
+            <td>{{q.VLAN}}</td>
+            <td>{{q.LOCATION}}</td>
+            <td > {{q.DESCRIPTION}}</td>
+            <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+          </tr>
+      {% endfor %} 
+
+    </tbody>
+  </table>
+{% endblock content %}
+    
+
+
